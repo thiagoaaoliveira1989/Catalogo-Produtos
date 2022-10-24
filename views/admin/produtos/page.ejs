@@ -1,0 +1,70 @@
+<%- include('../../partials/header'); %>
+
+  <%- include('../../partials/homenavbar'); %>
+
+    <div class="container">
+        <div class=" bg-light rounded-3 mt-2  ">
+            <div class="d-flex justify-content-start social_icon">
+                <span> <i> <svg  width="20"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> </i> </span>
+                <h5 for="" class="ms-4"> <STRONG>PRODUTOS</STRONG></h5> 
+            </div>             
+        </div>
+
+        <hr>
+
+        <div class="">
+
+            <div class="row mt-2">
+            <!-- Category Card -->
+            <% result.produtos.rows.forEach(element => { %>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 d-flex aling-itens-stretch mb-3" >
+                <div class="card  text-center bg-light">
+                  <a href=""  id="favoritar" class="position-absolute right-0 p-2 text-danger">
+                    <i class="far fa-heart"></i>
+                  </a>
+               
+                    <img  class="" height="220 " src="/img/<%= element.image  %> " alt="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                
+                  
+                  
+
+                
+                  <div class="card-header">
+                    <strong>R$</strong>  <%= element.preco  %> 
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= element.title  %> </h5>                      
+                  </div>
+                  <div class="card-footer">
+
+                    <% if(element.estoque <= 0) {%> 
+                      <div>
+                        <button class="btn btn-light disable" disabled>
+                          <small>Reabastencendo Estoque</small>
+                        </button>
+                        <small class="text-danger"><b>Produto Esgotado</b></small> 
+                      </div>
+                    <%  } else{  %> 
+                      <form action="" class="d-block">
+                        <button class="btn btn-danger">Adicionar ao Carrinho</button>
+                      </form>
+                      <small class="text-success">Estoque Disponivel</b></small>
+                      <%  } %> 
+                 
+
+                     
+                  </div>
+                </div>
+            </div>
+            <%  }); %>
+            
+        </div>
+
+    </div>
+
+
+    <%- include('../../partials/paginate'); %>
+
+</div>
+         
+    <%- include('../../partials/footer'); %>

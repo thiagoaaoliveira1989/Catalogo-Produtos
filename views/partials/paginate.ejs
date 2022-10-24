@@ -1,0 +1,21 @@
+<nav aria-label="Page navigation al-center example">
+    <ul class="pagination d-flex justify-content-between">
+      <li class="page-item float-start">
+        <% if ((result.page > 0 ) || (result.next == false)) { %>
+        <a class="page-link " style="float:right" href="/produtos/page/<%= result.page - 1%>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <% } %>
+        </a>
+      </li>
+     
+        
+      <li class="page-item ">
+        <% if (result.next)  { %>
+              <a class="page-link float-end"  href="/produtos/page/<%= result.page + 1%>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+        <% } %>
+          
+        </a>
+      </li>
+    </ul>
+  </nav>

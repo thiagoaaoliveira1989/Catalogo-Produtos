@@ -1,0 +1,41 @@
+<%- include('../../partials/header'); %>
+
+ <%- include('../../partials/navbar'); %>
+
+ <div class="container">
+
+  <h3 class="mt-2 mb-3">Usuários</h3>
+  <a href="/admin/users/cadastro" class="btn btn-warning">Cadastrar Novo Usuário</a>
+     
+
+   <div class=" mw-50 card mb-3 mt-4 ms-5"   >
+    <div class="row g-0 w-100 align-items-center">
+      <div class="col-md-4 mx-auto text-center">
+        <img class="img-fluid img-responsive" width="100" height="100" src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png" 
+        alt="Card image"> 
+        <p class="text-center"><%= users.nome %></p>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">PERFIL DO USUARIO <%= users.nome %></h5>
+          <p class="card-text"><strong>Id</strong>: <%= users.id %></p>
+          <p class="card-text"><strong>Nome</strong>: <%= users.nome %></p>
+          <p class="card-text"><strong>Email</strong>: <%= users.email %></p>
+          <br>
+          <a href="/logout" class="btn btn-success">Logout</a>
+        </div>
+         
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+
+    
+
+</div>
+
+<%- include('../../partials/footer'); %>

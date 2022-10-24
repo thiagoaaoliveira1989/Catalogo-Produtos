@@ -1,0 +1,29 @@
+<%- include('../../partials/header'); %>
+
+ <%- include('../../partials/navbar'); %>
+
+ <div class="container d-flex  justify-content-center">
+
+
+    <div class="card mt-3 w-50" >
+        <div class="card-header">
+            <h2 class="text-center">Bem Vindo ao Cadastro</h2>
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <form action="/admin/users/cadastro" method="post">
+                <input class="form-control mb-1" type="text" name="nome" id="nome" placeholder="Digite Seu Nome">
+
+                <input class="form-control mb-1" type="email" name="email" id="email" placeholder="Digite Seu Email">
+            
+                <input class="form-control" type="password" name="password" id="password" placeholder="Digite Seu PassWord">            
+                <br>
+                <button class="btn btn-primary w-100 mb-2">Cadastrar</button>
+                <p>Já possui uma conta?<a class="" href="/admin/users/login"> Faça Login. </a></p> 
+            </form>
+            
+        </div>
+        
+    </div> 
+</div>
+
+<%- include('../../partials/footer'); %>

@@ -1,0 +1,93 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="/">D.M. DISTRIBUIDORA</a>
+      
+      <ul class="navbar-nav d-flex flex-row float-start ">
+        <li class="nav-item me-3">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+    
+    
+        <li class="nav-item ms-3">
+          <a class="nav-link active" aria-current="page" href="/admin/users/login">Login</a>
+        </li>
+      </ul> 
+      
+
+      <div class="d-flex flex-direction-start">
+        <div class="cart-item">
+           <div class="icon">
+            <div  style=" z-index: 2" class=" d-flex align-items-center position-relative  material-icons text-white" width="50">
+              <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 0 24 24" width="48px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </div>
+            <div style="color: rgb(243, 0, 0); top: 8px; right: 87px; ; z-index: 999; font-size: 15px;" class="item-number position-absolute"  >
+            <b> 0</b> 
+            </div>
+           </div>
+        </div>
+        
+
+      
+
+      <% if(adminAuth){ %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <% } %> 
+
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" style="color: white ;" id="offcanvasDarkNavbarLabel">D.M. DISTRIBUIDORA</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+     
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  CATEGORIAS
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a class="dropdown-item" href="/admin/categories">CATEGORIAS CADASTRADAS</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/admin/categories/new">CADASTRAR NOVA CATEGORIA</a>
+                  </li>
+                </ul>
+              </li>
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  PRODUTOS
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a class="dropdown-item" href="/admin/produtos">PRODUTOS CADASTRADOS</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/admin/produtos/new">CADASTRAR NOVO PRODUTO</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+       
+  
+      </div>
+      
+    
+        
+    
+    </div>
+  
+  </nav>

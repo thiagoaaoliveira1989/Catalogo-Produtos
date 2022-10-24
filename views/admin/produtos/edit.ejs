@@ -1,0 +1,61 @@
+<%- include('../../partials/header'); %>
+<%- include('../../partials/navbar'); %>
+
+<div class="">
+    <div class=" bg-light rounded-3 p-2">
+        <div class="d-flex ms-4  justify-content-start social_icon">
+          <span> <i> <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                  d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+              </svg> </i> </span>
+          <h5 for="" class="ms-4"> <STRONG>EDITAR PRODUTO  <% produtos.forEach(produto => { %>
+            <%= produto.title %> 
+            <%  }); %> </STRONG></h5>
+        </div>
+      </div>
+</div>
+
+
+    <div class="container d-flex  justify-content-center">
+
+
+        
+        <% produtos.forEach(produto => { %>
+        <div class="card mt-3 " >
+            <div class="card-header">
+                <h2><%= produto.title %> </h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/produtos/update" method="post">
+                    <input type="hidden" name="id" value="<%= produto.id %>">
+                   
+                    <img src="/img/<%= produto.image %> " alt=""  name="<%= produto.image %> " srcset="">
+                    <hr>
+                    <label><strong>Codigo</strong></label>
+                    <input class="form-control mb-1" type="text" name="codigo" id="codigo"  value="<%= produto.codigo %>" placeholder="Codigo do Produto">
+                    <label><strong>Nome</strong></label>
+                    <input class="form-control mb-1" type="text" name="title" id="title"  value="<%= produto.title %>" placeholder="Nome do Produto">
+                    <label><strong>Preço</strong></label>                    
+                    <input class="form-control mb-1" type="text" name="preco" id="preco"  value="<%= produto.preco %>" placeholder="R$">
+                    <label><strong>Estoque</strong></label>  
+                    <input class="form-control mb-1" type="text" name="estoque" id="estoque" value="<%= produto.estoque %>" placeholder="Estoque">
+                    <%  }); %>
+                   
+                    <label><strong>Categoria</strong></label>
+                   
+                    <select name="category" class="form-control mb-3 " id="">
+                        <% categories.forEach(element => { %>
+                            <option value="<%= element.id %>" ><%= element.title %></option>
+                            <% }); %>
+                    </select>
+                    
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+            </div>
+            
+        </div> 
+      
+    </div>
+
+<%- include('../../partials/footer'); %>

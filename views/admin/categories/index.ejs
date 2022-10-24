@@ -1,0 +1,61 @@
+<%- include('../../partials/header'); %>
+<%- include('../../partials/navbar'); %>
+
+<div class="container">
+
+    <div class="card mt-3">
+        <div class="card-header">
+            <h2>Categorias</h2>
+            <a href="/admin/categories/new" class="btn btn-success">Register New Categories </a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                  <tr class="">
+                    <th class="">Id</th>
+                    <th class="">Title</th>
+                    <th class="">Slug</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                    <% categories.forEach(element => { %>
+                    <tr>
+                      <td class=""> <%= element.id %></td>  
+                      <td class=""> <%= element.title %></td>                    
+                      <td class=""><%= element.slug %></td> 
+                      <td>
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="/admin/categories/edit/<%=element.id %>" class="btn btn-warning">EDIT</a>
+                          <form method="POST" action="/categories/delete" onsubmit="activeDel(event, this)" >
+                            <input type="hidden" name="id" value="<%= element.id %>">
+                            <button  class="btn btn-danger" >DELETE</button>
+                          </form>
+                          
+                        </div>
+                      </td> 
+                    </tr>
+                    <% }); %> 
+                </tbody>
+              </table>
+        </div>
+        
+    </div> 
+</div>
+
+<%- include('../../partials/footer'); %>
+
+<script>
+  function activeDel(event, form){
+    event.preventDefault();
+    const decision = confirm("Do you confirm the exclusion of this category?");
+    if(decision){
+      form.submit();      
+      console.log("OK, exclusion confirmed!")
+    }else{
+     
+      console.log("OK, Category Not Excluded!");
+    }
+  }
+</script>
